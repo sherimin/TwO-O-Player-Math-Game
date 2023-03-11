@@ -12,8 +12,8 @@ class Game
         question = Question.new(turn)
         turn
 
-        num1 = rand(1..10)
-        num2 = rand(1..10)
+        num1 = rand(1..20)
+        num2 = rand(1..20)
 
         puts " ----- NEW TURN ----- "
 
@@ -25,10 +25,12 @@ class Game
 
         if answer === num1 + num2
             puts "Player #{turn}: YES! You are correct."
+            show_score
             update_turn(turn)
         else 
             puts "Player #{turn}: Seriously? No!"
             remaining_lives(turn)
+            show_score
             update_turn(turn)
         end
     end
@@ -40,6 +42,10 @@ class Game
             @turn =1
         end
         start
+    end
+
+    def show_score
+        puts "P1 : #{@player1}/3 vs P2: #{@player2}/3"
     end
 
     def game_over_player1_win
