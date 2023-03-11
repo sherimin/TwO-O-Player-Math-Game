@@ -39,7 +39,7 @@ class Game
         if turn == 1
             @turn = 2
         else
-            @turn =1
+            @turn = 1
         end
         start
     end
